@@ -27,7 +27,7 @@ table {
     transform: translateX(-50%);
     border: 1px solid black;
     border-collapse: collapse;
-    font-size: 1.2rem;    
+    font-size: 1.2rem;
 }
 
 tbody {
@@ -56,4 +56,24 @@ h1 {
     padding: 1rem;
     background-color: #574e4e91;
     font-weight: bold;
+}
+
+.card-header {
+    background-color: #635a5a8f;
+}
+
+.card-body {
+    background-color: #a59b9b8f;
+}
+
+.card-footer {
+    background-color: #4943438f;
+}
+
+.card {
+    margin-top: 2rem;
+}
+
+a {
+    color: black;
 }
