@@ -6,3 +6,54 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+td {
+    padding-right: 3rem;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+    padding-left: 2.7rem;
+}
+
+table {
+    position: relative;
+    left: 50%;
+    margin-top: 10rem;
+    transform: translateX(-50%);
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 1.2rem;    
+}
+
+tbody {
+    tr:nth-child(1) {
+        border-top: 1px solid black;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #ac999991;
+    }
+}
+
+
+
+tr:nth-child(even) {
+    background-color: #5f565691;
+}
+
+thead tr {
+    background-color: #55545491;
+}
+
+
+h1 {
+    text-align: center;
+    padding: 1rem;
+    background-color: #574e4e91;
+    font-weight: bold;
+}
