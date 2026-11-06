@@ -7,47 +7,30 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
-td {
-    padding-right: 3rem;
-}
 
-th {
-    text-align: center;
-}
+.custom-projects-table {
+    margin: 0 auto;
+    border: 1px solid #333;
+    font-size: 1.1rem;
 
-td {
-    text-align: center;
-    padding-left: 2.7rem;
-}
-
-table {
-    position: relative;
-    left: 50%;
-    margin-top: 10rem;
-    transform: translateX(-50%);
-    border: 1px solid black;
-    border-collapse: collapse;
-    font-size: 1.2rem;
-}
-
-tbody {
-    tr:nth-child(1) {
-        border-top: 1px solid black;
+    th, td {
+        vertical-align: middle;
+        text-align: center;
+        padding: 0.75rem 1rem; 
     }
 
-    tr:nth-child(odd) {
+    thead tr {
+        background-color: #55545491;
+        color: #fff;
+    }
+
+    tbody tr:nth-child(odd) {
         background-color: #ac999991;
     }
-}
 
-
-
-tr:nth-child(even) {
-    background-color: #5f565691;
-}
-
-thead tr {
-    background-color: #55545491;
+    tbody tr:nth-child(even) {
+        background-color: #5f565691;
+    }
 }
 
 
@@ -58,22 +41,10 @@ h1 {
     font-weight: bold;
 }
 
-.card-header {
-    background-color: #635a5a8f;
-}
-
-.card-body {
-    background-color: #a59b9b8f;
-}
-
-.card-footer {
-    background-color: #4943438f;
-}
+.card-header { background-color: #635a5a8f; }
+.card-body   { background-color: #a59b9b8f; }
+.card-footer { background-color: #4943438f; }
 
 .card {
     margin-top: 2rem;
-}
-
-a {
-    color: black;
 }

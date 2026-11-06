@@ -1,0 +1,30 @@
+@extends ('layouts.projectsLayout')
+
+@section('title', 'Crea un nuovo progetto')
+
+@section('content')
+    <form action="{{ route('projects.store') }}" method="POST">
+        @csrf
+
+
+        <div class="form-control mb-3 d-flex flex-column">
+            <label for="name">Project Name</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div class="form-control mb-3 d-flex flex-column">
+            <label for="Customer">Customer</label>
+            <input type="text" name="Customer" id="Customer" required>
+        </div>
+        <div class="form-control mb-3 d-flex flex-column">
+            <label for="Period">Period</label>
+            <input type="date" name="Period" id="Period" required>
+        </div>
+        <div class="form-control mb-3 d-flex flex-column">
+            <label for="Summary">Summary</label>
+            <textarea name="Summary" id="Summary" required> </textarea>
+        </div>
+        <input type="submit" value="Create Project">
+    </form>
+
+
+@endsection
