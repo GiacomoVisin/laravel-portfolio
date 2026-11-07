@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        $categories = Category::all();
+        return view('projects.create',compact('categories'));
     }
 
     /**
@@ -37,6 +39,7 @@ class ProjectController extends Controller
         $newProject->customer = $data['Customer'];
         $newProject->period = $data['Period'];
         $newProject->summary = $data['Summary'];
+        $newProject->category_id = $data['category_id'];
 
         $newProject->save();
 
@@ -48,6 +51,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+
+        /* dd($project->category); */
+
         return view('projects.show', compact('project'));
     }
 
@@ -56,7 +62,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('projects.edit', compact('project'));
+        $categories= Category::all();
+        return view('projects.edit', compact('project','categories'));
     }
 
     /**
@@ -70,6 +77,7 @@ class ProjectController extends Controller
         $project->customer = $data['Customer'];
         $project->period = $data['Period'];
         $project->summary = $data['Summary'];
+        $project->category_id = $data['category_id'];
 
         $project->update();
 

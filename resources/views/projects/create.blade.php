@@ -11,6 +11,19 @@
             <label for="name">Project Name</label>
             <input type="text" name="name" id="name" required>
         </div>
+
+
+        <div class="form-control mb-3 d-flex flex-column">
+            <label for="name">Category</label>
+            <select name="category_id" id="category_id">
+                @foreach ($categories as $category )
+                    <option value="{{ $category->id }}"> {{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+
+
         <div class="form-control mb-3 d-flex flex-column">
             <label for="Customer">Customer</label>
             <input type="text" name="Customer" id="Customer" required>
