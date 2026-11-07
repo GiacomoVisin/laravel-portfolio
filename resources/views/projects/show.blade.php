@@ -17,6 +17,8 @@
             </div>
             <div class="card-footer">
                 <p> <strong>Summary:</strong> {{ $project->Summary }} </p>
+                <p> <strong>Category:</strong> {{ $project->category }} </p>
+                
                 <a class="btn btn-primary" href="{{ route('projects.edit', $project) }}"> Edit project</a>
 
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
