@@ -77,7 +77,7 @@ class ProjectController extends Controller
         $project->customer = $data['Customer'];
         $project->period = $data['Period'];
         $project->summary = $data['Summary'];
-        $project->category_id = $data['category_id'];
+        $project->category_id = $data['category_id'];   
 
         $project->update();
 
