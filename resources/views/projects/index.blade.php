@@ -32,5 +32,7 @@
                 </tbody>
             </table>
         </div>
+
+           <a class="btn btn-primary" href="{{ route('projects.create', $project) }}"> Create new project</a>
     </div>
 @endsection
