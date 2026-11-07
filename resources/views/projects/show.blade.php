@@ -17,7 +17,7 @@
             </div>
             <div class="card-footer">
                 <p> <strong>Summary:</strong> {{ $project->Summary }} </p>
-                <p> <strong>Category:</strong> {{ $project->category }} </p>
+                <p> <strong>Category:</strong> {{ $project->category->name }} </p>
                 
                 <a class="btn btn-primary" href="{{ route('projects.edit', $project) }}"> Edit project</a>
 
