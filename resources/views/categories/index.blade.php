@@ -12,4 +12,6 @@
         @endforeach
     </ul>
 
+     <a class="btn btn-primary" href="{{ route('categories.create', $category) }}"> Create new category</a>
+
 @endsection

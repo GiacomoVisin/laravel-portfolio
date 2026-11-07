@@ -23,6 +23,8 @@ class CategoryController extends Controller
     public function create()
     {
         
+        $categories = Category::all();
+        return view('categories.create',compact('categories'));
     }
 
     /**
@@ -30,7 +32,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $data = $request->all();
+
+        $newCategory = new Category();
+
+        $newCategory->name = $data['name'];
+       
+        $newCategory->save();
+
+        return redirect()->route('categories.index', $newCategory);
     }
 
     /**
