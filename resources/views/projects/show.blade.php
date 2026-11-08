@@ -58,9 +58,3 @@
 
 @endsection
 
-
-<!--  <form action="{{ route("projects.destroy", $project) }}" method="POST">
-                        @csrf
-                        @method("DELETE")
-                        <input type="submit" class="btn btn-outline-danger mb-3" value="Elimina">
-                    </form> -->
