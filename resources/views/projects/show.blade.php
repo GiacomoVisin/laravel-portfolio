@@ -18,6 +18,14 @@
             <div class="card-footer">
                 <p> <strong>Summary:</strong> {{ $project->Summary }} </p>
                 <p> <strong>Category:</strong> {{ $project->category->name }} </p>
+
+                @if (count($project->technologies) > 0)
+                    <div class="mb-3"> <strong> Technologies: </strong>
+                        @foreach ($project->technologies as $technologies)
+                            <span class="badge" style="background-color:{{ $technologies->color }}">{{ $technologies->name }} </span>
+                        @endforeach
+                    </div>
+                @endif
                 
                 <a class="btn btn-primary" href="{{ route('projects.edit', $project) }}"> Edit project</a>
 
@@ -31,7 +39,7 @@
         </div>
     </div>
 
-    <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -57,4 +65,3 @@
     </div>
 
 @endsection
-
