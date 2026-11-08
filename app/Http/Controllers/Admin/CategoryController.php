@@ -39,6 +39,8 @@ class CategoryController extends Controller
         $newCategory = new Category();
 
         $newCategory->name = $data['name'];
+
+       $newCategory->description = $data['description'];
        
         $newCategory->save();
 
@@ -48,9 +50,9 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Category $category)
     {
-        //
+        return view('categories.show', compact('category'));
     }
 
     /**
@@ -58,15 +60,22 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+            return view('categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $data = $request->all();
+
+        $category -> name = $data['name'];
+        $category -> description = $data['description'];
+
+        $category -> update();
+
+        return redirect()->route('categories.show', $category);
     }
 
     /**
