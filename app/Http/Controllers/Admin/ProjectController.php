@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\Technology;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -22,8 +23,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $technologies = Technology::all();
         $categories = Category::all();
-        return view('projects.create',compact('categories'));
+        return view('projects.create', compact('categories', 'technologies'));
     }
 
     /**
@@ -43,6 +45,11 @@ class ProjectController extends Controller
 
         $newProject->save();
 
+        if($request->has('technologies')){
+            $newProject->technologies()->attach($data['technologies']);
+        }
+
+
         return redirect()->route('projects.show', $newProject);
     }
 
@@ -52,8 +59,6 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
 
-        /* dd($project->category); */
-
         return view('projects.show', compact('project'));
     }
 
@@ -62,8 +67,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        $categories= Category::all();
-        return view('projects.edit', compact('project','categories'));
+        $technologies = Technology::all();
+        $categories = Category::all();
+        return view('projects.edit', compact('project', 'categories', 'technologies'));
     }
 
     /**
@@ -77,9 +83,15 @@ class ProjectController extends Controller
         $project->customer = $data['Customer'];
         $project->period = $data['Period'];
         $project->summary = $data['Summary'];
-        $project->category_id = $data['category_id'];   
+        $project->category_id = $data['category_id'];
 
         $project->update();
+
+        if ($request->has('technologies')) {
+            $project->technologies()->sync($data['technologies']);
+        } else {
+            $project->technologies()->detach();
+        }
 
         return redirect()->route('projects.show', $project);
     }
