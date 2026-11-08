@@ -5,13 +5,14 @@ namespace Database\Seeders;
 use App\Models\Technology;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 
 class TechnologyTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(Faker $faker): void
     {
         $technologies = [
             [
@@ -41,6 +42,7 @@ class TechnologyTableSeeder extends Seeder
 
             $newTechnology->name = $technology['name'];
             $newTechnology->description = $technology['description']; 
+            $newTechnology->color = $faker->hexColor();
 
             $newTechnology->save();
         }
