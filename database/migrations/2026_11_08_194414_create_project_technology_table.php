@@ -16,8 +16,10 @@ return new class extends Migration
 
             $table->foreignId('project_id')->constrained();
             $table->foreignId('technology_id')->constrained();
-
+            
             $table->timestamps();
+
+            
         });
     }
 
